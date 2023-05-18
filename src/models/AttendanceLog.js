@@ -1,7 +1,5 @@
-const { sequelize, Sequelize } = require(".");
-
 module.exports = (sequelize, Sequelize) => {
-	const AttendanceLog = sequelize.define("AttendanceLogs", {
+    const AttendanceLog = sequelize.define("AttendanceLogs", {
 		clockIn: Sequelize.STRING,
 		clockOut: Sequelize.STRING,
 	});

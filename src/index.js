@@ -13,15 +13,17 @@ const Company = db.Company;
 const AttendanceLog = db.AttendanceLogs;
 
 // AttendanceLog.sync();
-
 // User.sync();
-// Company.sync();
+// User.sync({ force: true}).then(()=> console.log("Sync Complete"));
+// db.sequelize.sync({ force : true}).then(() => console.log("Sync Complete"));
+
 
 app.use("/main", routes.mainRoutes);
 app.use("/company", routes.companyRoutes);
-// db.sequelize.sync({ alter: true });
-// Attendance.sync({ force: true });
+app.use("/users", routes.userRoutes);
+
+
 
 app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
