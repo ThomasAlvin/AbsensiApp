@@ -48,10 +48,10 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 const user = require("./User");
 const company = require("./Company");
-const attendance = require("./AttendanceLog");
+const attendancelog = require("./AttendanceLog");
 db.User = user(sequelize, Sequelize);
 db.Company = company(sequelize, Sequelize);
-db.Attendance = attendance(sequelize, Sequelize);
+db.AttendanceLogs = attendancelog(sequelize, Sequelize);
 module.exports = db;
 
 db.User.belongsTo(db.Company, {
@@ -59,7 +59,7 @@ db.User.belongsTo(db.Company, {
 	as: "Company",
 });
 
-db.Attendance.belongsTo(db.User, {
+db.AttendanceLogs.belongsTo(db.User, {
 	foreignKey: "user_id",
 	as: "User",
 });
